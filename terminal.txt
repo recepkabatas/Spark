@@ -1,0 +1,163 @@
+
+[cloudera@quickstart ~]$ hdfs dfs -mkdir /usr/cloudera
+mkdir: `/usr/cloudera': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -mkdir /user/cloudera/WordCount
+[cloudera@quickstart ~]$ hdfs dfs -mkdir /user/cloudera/WordCount/input
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/Desktop/input.txt user/cloudera/WordCount/input
+put: `user/cloudera/WordCouhdfs nt/input': No such file or directory
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/Desktop/input.txt /user/cloudera/WordCount/input
+[cloudera@quickstart ~]$ hadoop dfs -jar /home/cloudera/D
+Desktop/   Documents/ Downloads/ 
+[cloudera@quickstart ~]$ 
+[cloudera@quickstart ~]$ hadoop dfs -jar /home/cloudera/Desktop/wordcount.jar wordcount wordcoun^C/user/cloudera/WordCount/input /user/cloudera/WordCount/output 
+[cloudera@quickstart ~]$ ^C
+[cloudera@quickstart ~]$ hdfs dfs -put /home/cloudera/Desktop/input.txt /user/cloudera/WordCount/input
+put: `/user/cloudera/WordCount/input/input.txt': File exists
+[cloudera@quickstart ~]$ hadoop dfs -jar /home/cloudera/Desktop/Untitled.jar wordcount.wordcount /user/cloudera/Desktop/input /user/cloudera/Desktop/output
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+-jar: Unknown command
+[cloudera@quickstart ~]$ hadoop dfs jar /home/cloudera/Desktop/Untitled.jar wordcount.wordcount /user/cloudera/Desktop/input /user/cloudera/Desktop/output
+DEPRECATED: Use of this script to execute hdfs command is deprecated.
+Instead use the hdfs command for it.
+
+jar: Unknown command
+[cloudera@quickstart ~]$ hadoop jar /home/cloudera/Desktop/Untitled.jar wordcount.wordcount /user/cloudera/Desktop/input /user/cloudera/Desktop/output
+16/08/24 04:15:05 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+16/08/24 04:15:06 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+16/08/24 04:15:06 INFO mapreduce.JobSubmitter: Cleaning up the staging area /tmp/hadoop-yarn/staging/cloudera/.staging/job_1471515428094_0001
+16/08/24 04:15:06 WARN security.UserGroupInformation: PriviledgedActionException as:cloudera (auth:SIMPLE) cause:org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://quickstart.cloudera:8020/user/cloudera/Desktop/input
+Exception in thread "main" org.apache.hadoop.mapreduce.lib.input.InvalidInputException: Input path does not exist: hdfs://quickstart.cloudera:8020/user/cloudera/Desktop/input
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.singleThreadedListStatus(FileInputFormat.java:323)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.listStatus(FileInputFormat.java:265)
+	at org.apache.hadoop.mapreduce.lib.input.FileInputFormat.getSplits(FileInputFormat.java:387)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeNewSplits(JobSubmitter.java:305)
+	at org.apache.hadoop.mapreduce.JobSubmitter.writeSplits(JobSubmitter.java:322)
+	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:200)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1307)
+	at org.apache.hadoop.mapreduce.Job$10.run(Job.java:1304)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:415)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1693)
+	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1304)
+	at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:1325)
+	at wordcount.wordcount.main(wordcount.java:62)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.hadoop.util.RunJar.run(RunJar.java:221)
+	at org.apache.hadoop.util.RunJar.main(RunJar.java:136)
+[cloudera@quickstart ~]$ hadoop jar /home/cloudera/Desktop/Untitled.jar wordcount.wordcount /user/cloudera/WordCount/input  /user/cloudera/WordCount/output
+16/08/24 04:16:34 INFO client.RMProxy: Connecting to ResourceManager at /0.0.0.0:8032
+16/08/24 04:16:34 WARN mapreduce.JobResourceUploader: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.
+16/08/24 04:16:35 INFO input.FileInputFormat: Total input paths to process : 1
+16/08/24 04:16:35 INFO mapreduce.JobSubmitter: number of splits:1
+16/08/24 04:16:35 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_1471515428094_0002
+16/08/24 04:16:36 INFO impl.YarnClientImpl: Submitted application application_1471515428094_0002
+16/08/24 04:16:36 INFO mapreduce.Job: The url to track the job: http://quickstart.cloudera:8088/proxy/application_1471515428094_0002/
+16/08/24 04:16:36 INFO mapreduce.Job: Running job: job_1471515428094_0002
+16/08/24 04:16:47 INFO mapreduce.Job: Job job_1471515428094_0002 running in uber mode : false
+16/08/24 04:16:47 INFO mapreduce.Job:  map 0% reduce 0%
+16/08/24 04:16:54 INFO mapreduce.Job:  map 100% reduce 0%
+16/08/24 04:17:03 INFO mapreduce.Job:  map 100% reduce 100%
+16/08/24 04:17:03 INFO mapreduce.Job: Job job_1471515428094_0002 completed successfully
+16/08/24 04:17:03 INFO mapreduce.Job: Counters: 49
+	File System Counters
+		FILE: Number of bytes read=330
+		FILE: Number of bytes written=227863
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=313
+		HDFS: Number of bytes written=220
+		HDFS: Number of read operations=6
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=2
+	Job Counters 
+		Launched map tasks=1
+		Launched reduce tasks=1
+		Data-local map tasks=1
+		Total time spent by all maps in occupied slots (ms)=4946
+		Total time spent by all reduces in occupied slots (ms)=6071
+		Total time spent by all map tasks (ms)=4946
+		Total time spent by all reduce tasks (ms)=6071
+		Total vcore-seconds taken by all map tasks=4946
+		Total vcore-seconds taken by all reduce tasks=6071
+		Total megabyte-seconds taken by all map tasks=5064704
+		Total megabyte-seconds taken by all reduce tasks=6216704
+	Map-Reduce Framework
+		Map input records=1
+		Map output records=27
+		Map output bytes=285
+		Map output materialized bytes=330
+		Input split bytes=136
+		Combine input records=27
+		Combine output records=26
+		Reduce input groups=26
+		Reduce shuffle bytes=330
+		Reduce input records=26
+		Reduce output records=26
+		Spilled Records=52
+		Shuffled Maps =1
+		Failed Shuffles=0
+		Merged Map outputs=1
+		GC time elapsed (ms)=125
+		CPU time spent (ms)=1350
+		Physical memory (bytes) snapshot=332062720
+		Virtual memory (bytes) snapshot=3007524864
+		Total committed heap usage (bytes)=226562048
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=177
+	File Output Format Counters 
+		Bytes Written=220
+[cloudera@quickstart ~]$ hdfs dfs -cat /user/cloudera/WordCount/output/*
+(including	1
+CDH	1
+Cloudera	2
+Hue).	1
+Impala,	1
+Search,	1
+The	1
+analytic	1
+and	1
+below	1
+cases,	1
+guides	1
+included	1
+most	1
+open	1
+popular	1
+some	1
+source	1
+the	1
+through	1
+tools	1
+tutorial	1
+use	1
+using	1
+with	1
+you	1
+[cloudera@quickstart ~]$ ^C
+[cloudera@quickstart ~]$ ^C
+[cloudera@quickstart ~]$ ^C
+[cloudera@quickstart ~]$ 
+life
+situations
+','
+since
+','
+day
+day
+day
+day
+']
+
